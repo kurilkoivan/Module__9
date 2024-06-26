@@ -1,38 +1,41 @@
-﻿namespace CovAndContrPractices
+﻿using System;
+namespace HW_9._6._1
 {
-    class Program
+
+    class Programm
     {
-        public delegate Parent HandlerMethod();
-        delegate void ChildInfo(Child child);
 
-        public static Parent ParentHandler()
+        public static void Main(string[] args)
         {
-            return null;
+            //Начало задания 1
+
+            Task1.TaskExceptions();
+            Console.WriteLine();
+
+            //Конец задания 1
+
+            //Начало задания 2
+
+            SortType sortLnames = new SortType();
+            sortLnames.SortEvent += ShowList.Show;
+            try
+            {
+                sortLnames.ReadSortType();
+            }
+            catch (MyException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            //Конец задания 2
+
+
         }
 
-
-        public static Child ChildHandler()
-        {
-            return null;
-        }
-
-        static void Main(string[] args)
-        {
-            ChildInfo childInfo = GetParentInfo;
-
-            childInfo.Invoke(new Child());
-
-            Console.Read();
-
-        }
-
-        public static void GetParentInfo(Parent p)
-        {
-            Console.WriteLine(p.GetType());
-        }
     }
-
-    class Parent { }
-
-    class Child : Parent { }
 }
+
