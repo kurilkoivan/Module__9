@@ -7,7 +7,7 @@
         {
             CalculateDelegate calcDelegate = CalculateOne;
 
-            calcDelegate += CalculateTwo;
+            calcDelegate -= CalculateTwo;
 
             calcDelegate.Invoke(100, 30);
 
