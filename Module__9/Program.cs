@@ -8,8 +8,11 @@
 
             CalculateDelegate calcDelegate = Calculate;
             int result = calcDelegate.Invoke(100, 30);
-
             Console.WriteLine(result);
+
+            CalculateDelegate calcDelegate2 = Calculate;
+            int result2 = calcDelegate(100, 30);
+            Console.WriteLine(result2);
             Console.Read();
 
         }
