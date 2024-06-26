@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿static void Main(string[] args)
+{
+    Exception exception = new Exception("какая то ошибка");
+    exception.Data.Add("дата создания исключения", DateTime.Now);
+}
