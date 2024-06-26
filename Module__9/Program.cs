@@ -1,19 +1,22 @@
-﻿static void Main(string[] args)
+﻿namespace DelegatePractices
 {
-    try
+    class Program
     {
-        Console.WriteLine("Процесс начат.");
-        throw new RankException();
-    }
+        delegate int CalculateDelegate(int a, int b);
+        static void Main(string[] args)
+        {
 
-    catch (RankException ex)
-    {
-        Console.Write(ex.GetType());
-    }
+            CalculateDelegate calcDelegate = Calculate;
+            int result = calcDelegate.Invoke(100, 30);
 
-    finally
-    {
-        Console.Read();
-    }
+            Console.WriteLine(result);
+            Console.Read();
 
+        }
+
+        static int Calculate(int a, int b)
+        {
+            return a - b;
+        }
+    }
 }
