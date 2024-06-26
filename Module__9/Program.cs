@@ -2,24 +2,26 @@
 {
     class Program
     {
-        delegate int CalculateDelegate(int a, int b);
+        delegate void CalculateDelegate(int a, int b);
         static void Main(string[] args)
         {
+            CalculateDelegate calcDelegate = CalculateOne;
 
-            CalculateDelegate calcDelegate = Calculate;
-            int result = calcDelegate.Invoke(100, 30);
-            Console.WriteLine(result);
+            calcDelegate += CalculateTwo;
 
-            CalculateDelegate calcDelegate2 = Calculate;
-            int result2 = calcDelegate(100, 30);
-            Console.WriteLine(result2);
+            calcDelegate.Invoke(100, 30);
+
             Console.Read();
-
         }
 
-        static int Calculate(int a, int b)
+        static void CalculateOne(int a, int b)
         {
-            return a - b;
+            Console.WriteLine(a - b);
+        }
+
+        static void CalculateTwo(int a, int b)
+        {
+            Console.WriteLine(a + b);
         }
     }
 }
