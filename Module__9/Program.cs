@@ -5,7 +5,7 @@
         delegate void ShowMessageDelegate(string _message);
         static void Main(string[] args)
         {
-            ShowMessageDelegate showMessageDelegate = delegate (string _message)
+            ShowMessageDelegate showMessageDelegate = (string _message) =>
             {
                 Console.WriteLine(_message);
             };
