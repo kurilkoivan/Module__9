@@ -3,16 +3,17 @@
     try
     {
         Console.WriteLine("Процесс начат.");
-        throw new ArgumentOutOfRangeException();
+        throw new RankException();
     }
 
-    catch (ArgumentOutOfRangeException ex)
+    catch (RankException ex)
     {
-        Console.Write(ex.Message);
+        Console.Write(ex.GetType());
     }
 
     finally
     {
         Console.Read();
     }
+
 }
